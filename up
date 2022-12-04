@@ -1,0 +1,5 @@
+!# /bin/bash
+
+echo 'iniciando sail'
+vendor/bin/sail up -d
+
