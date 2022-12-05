@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        //Create firs root user, edit this com env file
+        \App\Models\User::create([
+            'profile' => \App\Models\User::ROOT,
+            'name' => env('ROOT_USER'),
+            'email' => env('ROOT_EMAIL'),
+            'password' => Hash::make(env('ROOT_PASSWORD')),
+        ]);
     }
 }
